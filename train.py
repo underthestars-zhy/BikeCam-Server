@@ -94,12 +94,12 @@ class BikeDataPreprocessor:
         valid_segments = []
         start = 0
         for gap in gaps:
-            if gap - start > 15:  # Minimum sequence length
+            if gap - start >= 15:  # Minimum sequence length
                 segment = X[start:gap]
                 valid_segments.append(self._interpolate_segment(segment))
             start = gap
 
-        if len(X) - start > 15:
+        if len(X) - start >= 15:
             segment = X[start:]
             valid_segments.append(self._interpolate_segment(segment))
 
@@ -293,7 +293,7 @@ if __name__ == '__main__':
     # predictor.save_model('bike_model_1min_v1.pth')
 
     # Make predictions
-    recent_data = data_entry[-31:-1]  # Get last 5 entries
+    recent_data = data_entry[-16:-1]  # Get last 5 entries
 
     prediction = predictor.predict(recent_data)
     validation_point = [

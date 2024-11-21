@@ -24,7 +24,7 @@ for path in data_path:
 
     print(f"Load {len(data_entry)}/{len(data_path)}")
 
-data_entry = convert_interval(data_entry)[-31:-1]
+data_entry = convert_interval(data_entry)[-16:-1]
 
 import requests
 response = requests.post('http://127.0.0.1:9901/predict', json=data_entry)
