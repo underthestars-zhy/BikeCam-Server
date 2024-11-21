@@ -13,10 +13,10 @@ def convert_interval(data):
     sorted_data = sorted(data, key=lambda x: x['time'])
 
     # Initialize result list
-    result = []
+    # result = []
+    #
+    # # Iterate through the sorted data with step=2 to skip mid-interval records
+    # for i in range(0, len(sorted_data), 2):
+    #     result.append(sorted_data[i])
 
-    # Iterate through the sorted data with step=2 to skip mid-interval records
-    for i in range(0, len(sorted_data), 2):
-        result.append(sorted_data[i])
-
-    return result
+    return sorted_data

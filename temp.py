@@ -11,16 +11,7 @@ for path in data_path:
     with open(path, 'r') as f:
         entry = json.load(f)
 
-    data_entry.append({
-        "time": float(path.split('.')[0].split('/')[1]),
-        "bikes": [{
-            "location": {
-                "lat": x['location']['lat'],
-                "lng": x['location']['lng'],
-            },
-            "count": x['availableBikes'],
-        } for x in entry]
-    })
+    data_entry.append(entry)
 
     print(f"Load {len(data_entry)}/{len(data_path)}")
 
